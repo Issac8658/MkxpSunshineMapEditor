@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://5tao1dpagw6t"]
+
+[ext_resource type="Shader" uid="uid://48tlloj7m4aa" path="res://shaders/outline.gdshader" id="1_43one"]
+
+[resource]
+shader = ExtResource("1_43one")
+shader_parameter/nearRadius = 2
+shader_parameter/vertextScale = 2.0

@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKXP-Sunshine Map Editor", "MKXP-Sunshine Map Editor.csproj", "{498F996D-3B36-4F93-95BE-44DF0A0972ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{498F996D-3B36-4F93-95BE-44DF0A0972ED}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

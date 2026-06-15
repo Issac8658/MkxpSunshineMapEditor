@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://do8grkvfwmsxj"]
+
+[ext_resource type="Shader" uid="uid://dseml0w017mcb" path="res://shaders/plane.gdshader" id="1_sflg8"]
+
+[resource]
+shader = ExtResource("1_sflg8")
+shader_parameter/zoom = 1.0
+shader_parameter/offset = Vector2(0, 0)

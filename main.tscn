@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://bllr54ofo4atq"]
+
+[ext_resource type="Script" uid="uid://dwhuj1s38gukr" path="res://TestLoader.cs" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c5wawos626y7h" path="res://editor/menu_bar/MenuBarItem_Tools.cs" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://qohpvtj8h7mc" path="res://assets/transparent.png" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://bellbds0b4o61" path="res://editor/MapsTree.cs" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://ptrqkt5cgyuy" path="res://editor/map/CameraControls.cs" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://hlhj0cv6leaa" path="res://editor/map/MapLayer.cs" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://b3u3ak5u4x8fq" path="res://tools/RXData_Viewer.cs" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://2yxu8jkfejx8" path="res://editor/map/MapBorder.cs" id="5_kek77"]
+[ext_resource type="Script" uid="uid://txfilgfyy81" path="res://editor/map/Panorama.cs" id="5_ycdy4"]
+[ext_resource type="Material" uid="uid://do8grkvfwmsxj" path="res://materials/plane_mat.tres" id="6_dg77c"]
+[ext_resource type="Script" uid="uid://clx8f63t8oa64" path="res://editor/map/MapEnities.cs" id="7_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://cgf0ehqx5wr17" path="res://enitity.tscn" id="8_2cqfq"]
+[ext_resource type="Script" uid="uid://dqb7tffa06g7d" path="res://editor/LayersToggler.cs" id="8_4c57u"]
+[ext_resource type="Material" uid="uid://reko3e3hteab" path="res://materials/invert_mat.tres" id="8_vivmo"]
+[ext_resource type="Script" uid="uid://d36dgj63566t3" path="res://editor/TileAtlas.cs" id="9_kek77"]
+[ext_resource type="Script" uid="uid://bwm4vm7oomnsg" path="res://editor/tab_bar.gd" id="10_w48qg"]
+[ext_resource type="Script" uid="uid://cucu8gacgryfy" path="res://editor/EntityHitboxesToggler.cs" id="14_yaehf"]
+
+[sub_resource type="Gradient" id="Gradient_kek77"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4c57u"]
+gradient = SubResource("Gradient_kek77")
+width = 1
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_1bvp3"]
+number_color = Color(0, 0.60784316, 0.9490196, 1)
+symbol_color = Color(1, 0.44313726, 0, 1)
+function_color = Color(1, 1, 1, 1)
+member_variable_color = Color(1, 1, 1, 1)
+keyword_colors = {
+"\"__class__\"": Color(0.91939247, 0, 0.2989918, 1),
+"Array": Color(0.7588911, 0.99012727, 0.7370045, 1),
+"false": Color(0.91764706, 0, 0.29803923, 1),
+"int": Color(0.91764706, 0, 0.29803923, 1),
+"true": Color(0.91764706, 0, 0.29803923, 1)
+}
+member_keyword_colors = {
+"\"__class__\"": Color(0.91764706, 0, 0.29803923, 1)
+}
+color_regions = {
+"\" \"": Color(1, 1, 1, 1)
+}
+
+[node name="Control" type="MarginContainer" unique_id=404463940]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0xm2m")
+
+[node name="Background" type="TextureRect" parent="." unique_id=87252280]
+self_modulate = Color(0, 0, 0, 0.14117648)
+layout_mode = 2
+texture = ExtResource("2_7mycd")
+stretch_mode = 1
+
+[node name="MapViewport" type="SubViewportContainer" parent="." unique_id=1570259592]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MapViewport" unique_id=800244419]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="MapViewport/SubViewport" unique_id=1430574977 node_paths=PackedStringArray("CameraControlZone")]
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+script = ExtResource("3_5vw27")
+CameraControlZone = NodePath("../../../Interface/VBoxContainer/Workzone/Pages/MapControlTab")
+
+[node name="Panorama" type="Sprite2D" parent="MapViewport/SubViewport/Camera2D" unique_id=101977186 node_paths=PackedStringArray("Camera")]
+material = ExtResource("6_dg77c")
+script = ExtResource("5_ycdy4")
+Camera = NodePath("..")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="MapViewport/SubViewport" unique_id=1170043465]
+y_sort_enabled = true
+texture_filter = 1
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+script = ExtResource("4_7mycd")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="MapViewport/SubViewport" unique_id=2054973361]
+y_sort_enabled = true
+texture_filter = 1
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+script = ExtResource("4_7mycd")
+Layer = 1
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="MapViewport/SubViewport" unique_id=561132177]
+y_sort_enabled = true
+texture_filter = 1
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+script = ExtResource("4_7mycd")
+Layer = 2
+
+[node name="Entities" type="Node2D" parent="MapViewport/SubViewport" unique_id=1166203035]
+z_index = 1
+y_sort_enabled = true
+texture_repeat = 1
+script = ExtResource("7_ycdy4")
+EntityTemplate = ExtResource("8_2cqfq")
+
+[node name="Borders" type="Node2D" parent="MapViewport/SubViewport" unique_id=374575457]
+
+[node name="TopLeft" type="Node2D" parent="MapViewport/SubViewport/Borders" unique_id=1174855609]
+
+[node name="Line" type="Line2D" parent="MapViewport/SubViewport/Borders/TopLeft" unique_id=252403537]
+material = ExtResource("8_vivmo")
+position = Vector2(-8, -6)
+points = PackedVector2Array(0, -65000, 0, 65000)
+width = 16.0
+
+[node name="Line2" type="Line2D" parent="MapViewport/SubViewport/Borders/TopLeft" unique_id=1800511456]
+material = ExtResource("8_vivmo")
+position = Vector2(-6, -8)
+rotation = 1.5707964
+points = PackedVector2Array(0, -65000, 0, 65000)
+width = 16.0
+
+[node name="BottomRight" type="Node2D" parent="MapViewport/SubViewport/Borders" unique_id=1360191922]
+rotation = -3.1415925
+script = ExtResource("5_kek77")
+
+[node name="Line" type="Line2D" parent="MapViewport/SubViewport/Borders/BottomRight" unique_id=488186048]
+material = ExtResource("8_vivmo")
+position = Vector2(-8.000001, -6)
+points = PackedVector2Array(0, -65000, 0, 65000)
+width = 16.0
+
+[node name="Line2" type="Line2D" parent="MapViewport/SubViewport/Borders/BottomRight" unique_id=973620381]
+material = ExtResource("8_vivmo")
+position = Vector2(-6.000001, -8)
+rotation = 1.5707964
+points = PackedVector2Array(0, -65000, 0, 65000)
+width = 16.0
+
+[node name="Interface" type="HBoxContainer" parent="." unique_id=1722414131]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface" unique_id=409274941]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopBar" type="HBoxContainer" parent="Interface/VBoxContainer" unique_id=1464904110]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="Interface/VBoxContainer/TopBar" unique_id=1152772272]
+layout_mode = 2
+
+[node name="File" type="PopupMenu" parent="Interface/VBoxContainer/TopBar/MenuBar" unique_id=1216975367]
+
+[node name="Map" type="PopupMenu" parent="Interface/VBoxContainer/TopBar/MenuBar" unique_id=260832205]
+
+[node name="Tools" type="PopupMenu" parent="Interface/VBoxContainer/TopBar/MenuBar" unique_id=63226196 node_paths=PackedStringArray("RXDataView_Window")]
+item_count = 1
+item_0/text = "Parse .rxdata"
+item_0/id = 0
+script = ExtResource("2_1bvp3")
+RXDataView_Window = NodePath("../../../../../RXData_Viewer")
+
+[node name="Tabs" type="TabBar" parent="Interface/VBoxContainer/TopBar" unique_id=1644078111 node_paths=PackedStringArray("pages")]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+tab_alignment = 1
+close_with_middle_mouse = false
+tab_count = 3
+tab_0/title = "Map"
+tab_0/tooltip = "View and edit maps"
+tab_1/title = "Event Editor"
+tab_2/title = "Database"
+tab_2/disabled = true
+script = ExtResource("10_w48qg")
+pages = [NodePath("../../Workzone/Pages/MapControlTab"), NodePath("../../Workzone/Pages/EventsEditorTab"), NodePath("../../Workzone/Pages/DatabaseEditorTab")]
+
+[node name="LayersHint" type="Label" parent="Interface/VBoxContainer/TopBar" unique_id=136935178]
+layout_mode = 2
+text = "Layers"
+
+[node name="PanoramaToggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=1279366583 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+text = " P "
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/Camera2D/Panorama")
+
+[node name="Layer1Toggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=1644337375 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "L1"
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/TileMapLayer")
+
+[node name="Layer2Toggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=718676695 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "L2"
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/TileMapLayer2")
+
+[node name="Layer3Toggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=1553383546 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "L3"
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/TileMapLayer3")
+
+[node name="EventsToggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=1986559124 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " E "
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/Entities")
+
+[node name="EventsToggler2" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=2014589635]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "EH"
+script = ExtResource("14_yaehf")
+
+[node name="BordersToggler" type="Button" parent="Interface/VBoxContainer/TopBar" unique_id=829577816 node_paths=PackedStringArray("Layer")]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = " B "
+script = ExtResource("8_4c57u")
+Layer = NodePath("../../../../MapViewport/SubViewport/Borders")
+
+[node name="Workzone" type="SplitContainer" parent="Interface/VBoxContainer" unique_id=852644232]
+layout_mode = 2
+size_flags_vertical = 3
+split_offsets = PackedInt32Array(256)
+split_offset = 256
+
+[node name="LeftPanel" type="SplitContainer" parent="Interface/VBoxContainer/Workzone" unique_id=1710478455]
+layout_mode = 2
+size_flags_vertical = 3
+vertical = true
+
+[node name="ToolBar" type="GridContainer" parent="Interface/VBoxContainer/Workzone/LeftPanel" unique_id=1326160256]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Tree" type="Tree" parent="Interface/VBoxContainer/Workzone/LeftPanel" unique_id=751082499]
+layout_mode = 2
+columns = 2
+column_titles_visible = true
+allow_rmb_select = true
+hide_root = true
+select_mode = 1
+script = ExtResource("2_h2yge")
+
+[node name="Pages" type="MarginContainer" parent="Interface/VBoxContainer/Workzone" unique_id=797644728]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MapControlTab" type="Control" parent="Interface/VBoxContainer/Workzone/Pages" unique_id=1926737818]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EventsEditorTab" type="MarginContainer" parent="Interface/VBoxContainer/Workzone/Pages" unique_id=505635663]
+layout_mode = 2
+
+[node name="DatabaseEditorTab" type="MarginContainer" parent="Interface/VBoxContainer/Workzone/Pages" unique_id=1063929047]
+layout_mode = 2
+
+[node name="CurrentTileset" type="ScrollContainer" parent="Interface" unique_id=354284411]
+layout_mode = 2
+size_flags_horizontal = 8
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/CurrentTileset" unique_id=238314227]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="Interface/CurrentTileset/MarginContainer" unique_id=1883356083]
+self_modulate = Color(0.4745098, 0.4745098, 0.4745098, 0.19215687)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_4c57u")
+stretch_mode = 1
+
+[node name="TilesetTexture" type="TextureRect" parent="Interface/CurrentTileset/MarginContainer" unique_id=812356940]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+script = ExtResource("9_kek77")
+
+[node name="RXData_Viewer" type="Window" parent="." unique_id=717005177 node_paths=PackedStringArray("PathInputLine", "ParseButton", "ResultPanel")]
+oversampling_override = 1.0
+title = "RXData Viewer Tool"
+initial_position = 4
+size = Vector2i(774, 489)
+visible = false
+sharp_corners = true
+script = ExtResource("4_lquwl")
+PathInputLine = NodePath("VBoxContainer/HBoxContainer/LineEdit")
+ParseButton = NodePath("VBoxContainer/HBoxContainer/Button")
+ResultPanel = NodePath("VBoxContainer/CodeEdit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RXData_Viewer" unique_id=856329054]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RXData_Viewer/VBoxContainer" unique_id=1944319274]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="RXData_Viewer/VBoxContainer/HBoxContainer" unique_id=619144606]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="RXData_Viewer/VBoxContainer/HBoxContainer" unique_id=823333474]
+layout_mode = 2
+text = "Select"
+
+[node name="Control" type="Control" parent="RXData_Viewer/VBoxContainer/HBoxContainer" unique_id=1815760586]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="RXData_Viewer/VBoxContainer/HBoxContainer" unique_id=1288048814]
+layout_mode = 2
+text = "Parse"
+
+[node name="CodeEdit" type="CodeEdit" parent="RXData_Viewer/VBoxContainer" unique_id=1037765307]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "JSON-like code will be here"
+minimap_draw = true
+minimap_width = 200
+caret_blink = true
+syntax_highlighter = SubResource("CodeHighlighter_1bvp3")
+highlight_current_line = true
+draw_control_chars = true
+draw_tabs = true
+line_folding = true
+indent_size = 8
+indent_automatic = true
