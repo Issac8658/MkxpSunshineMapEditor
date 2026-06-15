@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bllr54ofo4atq"]
 
-[ext_resource type="Script" uid="uid://dwhuj1s38gukr" path="res://TestLoader.cs" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c5wawos626y7h" path="res://editor/menu_bar/MenuBarItem_Tools.cs" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qohpvtj8h7mc" path="res://assets/transparent.png" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://bellbds0b4o61" path="res://editor/MapsTree.cs" id="2_h2yge"]
@@ -53,7 +52,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_0xm2m")
 
 [node name="Background" type="TextureRect" parent="." unique_id=87252280]
 self_modulate = Color(0, 0, 0, 0.14117648)

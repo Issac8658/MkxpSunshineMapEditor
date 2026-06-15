@@ -13,15 +13,8 @@ public partial class MapsTree : Tree
 		_root = CreateItem();
 		_root.SetText(0, "Root");
 
-		RPG_Loader.ProjectLoaded += () =>
-		{
-			_treeItems = [];
-
-			foreach ((int id, MapInfo info) in RPG_Data.MapInfos)
-			{
-				CreateMapItem(id);
-			}
-		};
+		//RPG_Loader.ProjectLoaded += Load;
+		Load();
 
 		ItemActivated += () =>
 		{
@@ -38,6 +31,17 @@ public partial class MapsTree : Tree
 		SetColumnTitle(0, "Name");
 		SetColumnTitle(1, "ID");
 		SetColumnTitleAlignment(0, HorizontalAlignment.Left);
+	}
+
+	private void Load()
+	{
+		foreach ((_, TreeItem treeItem) in _treeItems)
+			treeItem.Free();
+		_treeItems = [];
+		foreach ((int id, _) in RPG_Data.MapInfos)
+		{
+			CreateMapItem(id);
+		}
 	}
 
 	private void CreateMapItem(int id)

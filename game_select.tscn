@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://v1smwew4whqp"]
+
+[ext_resource type="Script" uid="uid://bpbos88opbmmf" path="res://editor/GameSelector.cs" id="1_rsw2t"]
+
+[node name="GameSelect" type="MarginContainer" unique_id=1152299599]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=929599030 node_paths=PackedStringArray("PathInput", "SelectButton", "OpenButton", "Dialog", "ErrorDialog", "LoadingPanel")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_rsw2t")
+PathInput = NodePath("MarginContainer/VBoxContainer/HBoxContainer/LineEdit")
+SelectButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SelectButton")
+OpenButton = NodePath("MarginContainer/VBoxContainer/OpenButton")
+Dialog = NodePath("../FileDialog")
+ErrorDialog = NodePath("../AcceptDialog")
+LoadingPanel = NodePath("../Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=525983051]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1303775090]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=596263259]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1135891331]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Path to your RPG Maker XP game folder"
+expand_to_text_length = true
+emoji_menu_enabled = false
+
+[node name="SelectButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1465773896]
+layout_mode = 2
+text = "📂"
+
+[node name="OpenButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=805311931]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Open"
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1039579163]
+title = "Open a Directory"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="." unique_id=1144423175]
+oversampling_override = 1.0
+size = Vector2i(500, 100)
+dialog_autowrap = true
+
+[node name="Label" type="Label" parent="." unique_id=1332897831]
+visible = false
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1

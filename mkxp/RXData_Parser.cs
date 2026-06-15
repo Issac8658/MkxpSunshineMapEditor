@@ -7,13 +7,19 @@ namespace RPG
 {
     public partial class RXData_Parser : RefCounted
     {
+        private string _path;
+
         private Array _symbolCache = [];
         private Array _objectCache = [];
 
         public Variant Data = default;
+        public string ErrorMessage;
+        public bool Success = false;
+        public string Path { get => _path; }
 
         public RXData_Parser(string path)
         {
+            _path = path;
             Data = ParseRXData(path);
         }
 
@@ -28,7 +34,8 @@ namespace RPG
 
             if (!File.Exists(path))
             {
-                GD.PushWarning($"Unable to open file");
+                ErrorMessage = $"Unable to open file \"{_path}\"";
+                GD.PushWarning(ErrorMessage);
                 return default;
             }
 
@@ -41,13 +48,18 @@ namespace RPG
             GD.Print($"Marshal {major}.{minor}");
             if (major != 4 || minor != 8)
             {
-                GD.PushWarning($"Unsupported Marshal version, deserializing impossible");
+                ErrorMessage = $"Unsupported Marshal ({major}.{minor}) version, deserializing impossible";
+                GD.PushWarning(ErrorMessage);
                 return default;
             }
 
             GD.Print("Deserializing...");
+            Success = true;
             Variant data = ParseMarshalElement(reader);
-            GD.Print("Deserializing success");
+            if (Success)
+                GD.Print("Deserializing success");
+            else
+                GD.PushWarning("Deserializing ended with errors");
             return data;
         }
 
@@ -231,6 +243,8 @@ namespace RPG
                     }
                 default:
                     {
+                        Success = false;
+                        ErrorMessage = $"File \"{_path}\" corrupted or has unknown format";
                         GD.PushWarning($"Unknown Marshal flag '{type_flag}' in {reader.BaseStream.Position - 1}");
                         return default;
                     }
