@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://belshwjswsq03"]
+
+[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/blend_code/center.tres" id="1_nl42v"]
+[ext_resource type="StyleBox" uid="uid://b1ttbfl6qws8g" path="res://assets/block_code/blend_code/inset_part_top.tres" id="1_thfll"]
+[ext_resource type="StyleBox" uid="uid://dan2cqu48lurl" path="res://assets/block_code/blend_code/inset_part_center.tres" id="2_25ba3"]
+[ext_resource type="StyleBox" uid="uid://pfq1r3yv5eke" path="res://assets/block_code/blend_code/inset_part_bottom.tres" id="3_10kex"]
+
+[node name="ValueInput" type="HBoxContainer" unique_id=1867175421]
+custom_minimum_size = Vector2(18, 0)
+offset_right = 14.0
+offset_bottom = 9.0
+theme_override_constants/separation = 0
+
+[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=644211134]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("1_nl42v")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1354419555]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1191460434]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Top" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1889691784]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_thfll")
+
+[node name="Middle" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=714135475]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_25ba3")
+
+[node name="Bottom" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1489339183]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_10kex")
+
+[node name="Content" type="MarginContainer" parent="MarginContainer" unique_id=1278214842]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=921847256]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("1_nl42v")

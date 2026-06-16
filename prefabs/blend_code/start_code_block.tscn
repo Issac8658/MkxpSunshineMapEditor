@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c07u1780p714x"]
+
+[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/blend_code/left_edge.tres" id="1_hs8qu"]
+[ext_resource type="StyleBox" uid="uid://bg4qfk8t72kbi" path="res://assets/block_code/blend_code/cat.tres" id="2_dl8nu"]
+[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/blend_code/middle.tres" id="3_e7aqq"]
+[ext_resource type="StyleBox" uid="uid://cnosx5b1tml61" path="res://assets/block_code/blend_code/top_arrows.tres" id="4_pg23l"]
+[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/blend_code/right_edge.tres" id="5_3bxsp"]
+[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/blend_code/center.tres" id="8_38cec"]
+
+[node name="StartCodeBlock" type="HBoxContainer" unique_id=1622256688]
+offset_right = 29.0
+offset_bottom = 8.0
+theme_override_constants/separation = 0
+
+[node name="Marker" type="PanelContainer" parent="." unique_id=365756211]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_hs8qu")
+
+[node name="CatAnchor" type="Control" parent="Marker" unique_id=1198327917]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Cat" type="PanelContainer" parent="Marker/CatAnchor" unique_id=1913900372]
+z_index = 9
+layout_mode = 0
+offset_left = 1.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = -3.0
+theme_override_styles/panel = ExtResource("2_dl8nu")
+
+[node name="Body" type="MarginContainer" parent="." unique_id=1089817963]
+layout_mode = 2
+
+[node name="BG" type="HBoxContainer" parent="Body" unique_id=588369428]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Start" type="PanelContainer" parent="Body/BG" unique_id=2018264701]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_e7aqq")
+
+[node name="Arrow" type="PanelContainer" parent="Body/BG" unique_id=104859391]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_pg23l")
+
+[node name="Middle" type="PanelContainer" parent="Body/BG" unique_id=1993063549]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_e7aqq")
+
+[node name="End" type="PanelContainer" parent="Body/BG" unique_id=955168204]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_3bxsp")
+
+[node name="ContentMargin" type="MarginContainer" parent="Body" unique_id=962855246]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="Content" type="HBoxContainer" parent="Body/ContentMargin" unique_id=1818135624]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="InputContent" type="HBoxContainer" parent="Body/ContentMargin/Content" unique_id=641951453]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Filler" type="PanelContainer" parent="Body/ContentMargin/Content" unique_id=2077968981]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("8_38cec")

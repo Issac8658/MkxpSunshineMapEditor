@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://461ta5cxg2lg"]
+
+[ext_resource type="Texture2D" uid="uid://ggkcw51pkm1d" path="res://assets/block_code/blend_code/blend_code.png" id="1_llm0r"]
+
+[resource]
+texture = ExtResource("1_llm0r")
+region_rect = Rect2(26, 4, 1, 3)

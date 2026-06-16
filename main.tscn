@@ -289,11 +289,16 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="Interface/VBoxContainer/Workzone/Pages/EventsEditorTab" unique_id=490196901]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Interface/VBoxContainer/Workzone/Pages/EventsEditorTab/PanelContainer" unique_id=333235536]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Interface/VBoxContainer/Workzone/Pages/EventsEditorTab/PanelContainer" unique_id=960376786]
 layout_mode = 2
-text = "WIP"
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Interface/VBoxContainer/Workzone/Pages/EventsEditorTab/PanelContainer/SubViewportContainer" unique_id=397813751]
+transparent_bg = true
+size = Vector2i(624, 613)
 
 [node name="DatabaseEditorTab" type="MarginContainer" parent="Interface/VBoxContainer/Workzone/Pages" unique_id=1063929047]
+visible = false
 layout_mode = 2
 
 [node name="CurrentTileset" type="ScrollContainer" parent="Interface" unique_id=354284411]

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://djbk0df6ka2ta"]
+
+[ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/simple.tscn" id="6_fjb1c"]
+[ext_resource type="Script" uid="uid://ptrqkt5cgyuy" path="res://editor/map/CameraControls.cs" id="29_ici4b"]
+[ext_resource type="PackedScene" uid="uid://c07u1780p714x" path="res://prefabs/blend_code/start_code_block.tscn" id="30_w7uul"]
+[ext_resource type="PackedScene" uid="uid://do5gu5ipfwrd2" path="res://prefabs/blend_code/middle_code_block.tscn" id="31_ici4b"]
+[ext_resource type="PackedScene" uid="uid://tyjdcoicenbt" path="res://prefabs/blend_code/node_part_text.tscn" id="35_w7uul"]
+[ext_resource type="PackedScene" uid="uid://belshwjswsq03" path="res://prefabs/blend_code/node_part_value_input.tscn" id="36_0augb"]
+
+[node name="Control" type="Control" unique_id=723980428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=304737386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1077466116]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+oversampling_override = 4.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=370588748 node_paths=PackedStringArray("CameraControlZone")]
+limit_enabled = false
+script = ExtResource("29_ici4b")
+CameraControlZone = NodePath("../..")
+BoundToMap = false
+TargetZoom = 2.0
+MinZoom = 1.0
+MaxZoom = 16.0
+
+[node name="StartCodeBlock" parent="SubViewportContainer/SubViewport" unique_id=1622256688 instance=ExtResource("30_w7uul")]
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 95.0
+offset_bottom = 26.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/StartCodeBlock/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="0" unique_id=2086781360 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="ValueInput" parent="SubViewportContainer/SubViewport/StartCodeBlock/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="1" unique_id=1867175421 instance=ExtResource("36_0augb")]
+layout_mode = 2
+
+[node name="StartCodeBlock2" parent="SubViewportContainer/SubViewport" unique_id=473465318 instance=ExtResource("31_ici4b")]
+offset_left = 16.0
+offset_top = 25.0
+offset_right = 81.0
+offset_bottom = 50.0
+
+[node name="StartCodeBlock3" parent="SubViewportContainer/SubViewport" unique_id=1393645428 instance=ExtResource("31_ici4b")]
+offset_left = 16.0
+offset_top = 49.0
+offset_right = 176.0
+offset_bottom = 65.0
+
+[node name="StartCodeBlock4" parent="SubViewportContainer/SubViewport" unique_id=1282020283 instance=ExtResource("31_ici4b")]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 162.0
+offset_bottom = 129.0
+
+[node name="LittleCodeBlock" parent="SubViewportContainer/SubViewport" unique_id=1289257834 instance=ExtResource("6_fjb1c")]
+
+[editable path="SubViewportContainer/SubViewport/StartCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/StartCodeBlock/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/StartCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/StartCodeBlock3"]
+[editable path="SubViewportContainer/SubViewport/StartCodeBlock4"]
