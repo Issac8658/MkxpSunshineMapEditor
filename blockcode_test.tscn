@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djbk0df6ka2ta"]
 
 [ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/simple.tscn" id="6_fjb1c"]
+[ext_resource type="PackedScene" uid="uid://cyslqc6v7tp7w" path="res://prefabs/blend_code/conditional_code_block.tscn" id="7_kkquf"]
 [ext_resource type="Script" uid="uid://ptrqkt5cgyuy" path="res://editor/map/CameraControls.cs" id="29_ici4b"]
 [ext_resource type="PackedScene" uid="uid://c07u1780p714x" path="res://prefabs/blend_code/start_code_block.tscn" id="30_w7uul"]
 [ext_resource type="PackedScene" uid="uid://do5gu5ipfwrd2" path="res://prefabs/blend_code/middle_code_block.tscn" id="31_ici4b"]
@@ -72,8 +73,22 @@ offset_bottom = 129.0
 
 [node name="LittleCodeBlock" parent="SubViewportContainer/SubViewport" unique_id=1289257834 instance=ExtResource("6_fjb1c")]
 
+[node name="MiddleCodeBlock" parent="SubViewportContainer/SubViewport" unique_id=1373917120 instance=ExtResource("7_kkquf")]
+offset_left = 62.0
+offset_top = 144.0
+offset_right = 91.0
+offset_bottom = 165.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/MiddleCodeBlock/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1373917120, 974330061) index="0" unique_id=2062565822 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="Label" parent="SubViewportContainer/SubViewport/MiddleCodeBlock/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text/PanelContainer" parent_id_path=PackedInt32Array(2062565822, 1300910116) index="0" unique_id=852197062]
+text = "Some Condition"
+
 [editable path="SubViewportContainer/SubViewport/StartCodeBlock"]
 [editable path="SubViewportContainer/SubViewport/StartCodeBlock/Body/ContentMargin/Content/InputContent/ValueInput"]
 [editable path="SubViewportContainer/SubViewport/StartCodeBlock2"]
 [editable path="SubViewportContainer/SubViewport/StartCodeBlock3"]
 [editable path="SubViewportContainer/SubViewport/StartCodeBlock4"]
+[editable path="SubViewportContainer/SubViewport/MiddleCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/MiddleCodeBlock/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]

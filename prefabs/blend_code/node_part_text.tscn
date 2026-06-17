@@ -6,16 +6,19 @@
 font_size = 10
 
 [node name="Text" type="HBoxContainer" unique_id=2086781360]
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="PanelContainer7" type="PanelContainer" parent="." unique_id=77126102]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_26u8a")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1300910116]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_26u8a")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=852197062]
@@ -27,4 +30,5 @@ label_settings = SubResource("LabelSettings_buug5")
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_26u8a")
