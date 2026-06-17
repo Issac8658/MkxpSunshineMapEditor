@@ -1,57 +1,67 @@
 [gd_scene format=3 uid="uid://do5gu5ipfwrd2"]
 
-[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/blend_code/left_edge.tres" id="1_1o57i"]
-[ext_resource type="Script" uid="uid://prnjtrs0obp6" path="res://editor/block_code/BaseBlock.cs" id="1_g5rx6"]
-[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/blend_code/middle.tres" id="2_g5rx6"]
-[ext_resource type="StyleBox" uid="uid://sv2qo2p3820s" path="res://assets/block_code/blend_code/middle_arrows.tres" id="3_qeneo"]
-[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/blend_code/right_edge.tres" id="4_utmxb"]
-[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/blend_code/center.tres" id="5_3wkde"]
+[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/left_edge.tres" id="1_1o57i"]
+[ext_resource type="Script" uid="uid://bpy1vp57n51bk" path="res://editor/block_code/ConnectableBlock.cs" id="1_qeneo"]
+[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/middle.tres" id="2_g5rx6"]
+[ext_resource type="StyleBox" uid="uid://sv2qo2p3820s" path="res://assets/block_code/middle_arrows.tres" id="3_qeneo"]
+[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/right_edge.tres" id="4_utmxb"]
+[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/center.tres" id="5_3wkde"]
+[ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="7_qeneo"]
 
-[node name="MiddleCodeBlock" type="HBoxContainer" unique_id=473465318 node_paths=PackedStringArray("MoveZone", "ContentConatiner")]
-offset_right = 29.0
+[node name="MiddleCodeBlock" type="VBoxContainer" unique_id=1361412505 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
+offset_right = 33.0
 offset_bottom = 8.0
+mouse_filter = 0
 theme_override_constants/separation = 0
-script = ExtResource("1_g5rx6")
-MoveZone = NodePath(".")
-ContentConatiner = NodePath("Body/ContentMargin/Content/InputContent")
+script = ExtResource("1_qeneo")
+MoveZone = NodePath("HBoxContainer")
+ContentConatiner = NodePath("HBoxContainer/Body/ContentMargin/Content/InputContent")
+Connectors = [NodePath("Connector")]
 
-[node name="Marker" type="PanelContainer" parent="." unique_id=1826739164]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1257550014]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Marker" type="PanelContainer" parent="HBoxContainer" unique_id=1826739164]
+self_modulate = Color(0.27812427, 0.9515776, 0, 1)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_1o57i")
 
-[node name="Body" type="MarginContainer" parent="." unique_id=1785118667]
+[node name="Body" type="MarginContainer" parent="HBoxContainer" unique_id=1785118667]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="BG" type="HBoxContainer" parent="Body" unique_id=1640612831]
+[node name="BG" type="HBoxContainer" parent="HBoxContainer/Body" unique_id=1640612831]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Start" type="PanelContainer" parent="Body/BG" unique_id=1399241460]
+[node name="Start" type="PanelContainer" parent="HBoxContainer/Body/BG" unique_id=1399241460]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_g5rx6")
 
-[node name="Arrow" type="PanelContainer" parent="Body/BG" unique_id=1022321952]
+[node name="Arrow" type="PanelContainer" parent="HBoxContainer/Body/BG" unique_id=1022321952]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_qeneo")
 
-[node name="Middle" type="PanelContainer" parent="Body/BG" unique_id=1782373260]
+[node name="Middle" type="PanelContainer" parent="HBoxContainer/Body/BG" unique_id=1782373260]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_g5rx6")
 
-[node name="End" type="PanelContainer" parent="Body/BG" unique_id=745384774]
+[node name="End" type="PanelContainer" parent="HBoxContainer/Body/BG" unique_id=745384774]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_utmxb")
 
-[node name="ContentMargin" type="MarginContainer" parent="Body" unique_id=484019789]
+[node name="ContentMargin" type="MarginContainer" parent="HBoxContainer/Body" unique_id=484019789]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 mouse_filter = 2
@@ -60,37 +70,40 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 1
 
-[node name="Content" type="HBoxContainer" parent="Body/ContentMargin" unique_id=1781314567]
+[node name="Content" type="HBoxContainer" parent="HBoxContainer/Body/ContentMargin" unique_id=1781314567]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Filler2" type="PanelContainer" parent="Body/ContentMargin/Content" unique_id=56037409]
+[node name="Filler2" type="PanelContainer" parent="HBoxContainer/Body/ContentMargin/Content" unique_id=56037409]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_3wkde")
 
-[node name="MarginContainer" type="MarginContainer" parent="Body/ContentMargin/Content" unique_id=1829094289]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Body/ContentMargin/Content" unique_id=1829094289]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 3
 
-[node name="Filler3" type="PanelContainer" parent="Body/ContentMargin/Content/MarginContainer" unique_id=1092624016]
+[node name="Filler3" type="PanelContainer" parent="HBoxContainer/Body/ContentMargin/Content/MarginContainer" unique_id=1092624016]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_3wkde")
 
-[node name="InputContent" type="HBoxContainer" parent="Body/ContentMargin/Content" unique_id=974330061]
+[node name="InputContent" type="HBoxContainer" parent="HBoxContainer/Body/ContentMargin/Content" unique_id=974330061]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Filler" type="PanelContainer" parent="Body/ContentMargin/Content" unique_id=1347046798]
+[node name="Filler" type="PanelContainer" parent="HBoxContainer/Body/ContentMargin/Content" unique_id=1347046798]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_3wkde")
+
+[node name="Connector" parent="." unique_id=331393397 instance=ExtResource("7_qeneo")]
+layout_mode = 2

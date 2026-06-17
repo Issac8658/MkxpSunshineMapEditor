@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b1ttbfl6qws8g"]
+
+[ext_resource type="Texture2D" uid="uid://ggkcw51pkm1d" path="res://assets/block_code/blend_code.png" id="1_bwal8"]
+
+[resource]
+texture = ExtResource("1_bwal8")
+texture_margin_left = 4.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+region_rect = Rect2(19, 1, 6, 3)
+draw_center = false

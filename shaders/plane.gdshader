@@ -2,6 +2,7 @@ shader_type canvas_item;
 render_mode skip_vertex_transform;
 
 uniform float zoom = 1;
+uniform float bgZoom = 2;
 uniform vec2 offset = vec2(0);
 
 void vertex() {
@@ -9,9 +10,9 @@ void vertex() {
 }
 
 void fragment() {
-	float z = zoom * 2.0;
+	float z = zoom * bgZoom;
 	COLOR = texture(TEXTURE,
-	((SCREEN_UV - 0.5) / SCREEN_PIXEL_SIZE + offset * z / 2.0) * TEXTURE_PIXEL_SIZE / z + 0.5);
+	((SCREEN_UV - 0.5) / SCREEN_PIXEL_SIZE + offset * z / bgZoom) * TEXTURE_PIXEL_SIZE / z + 0.5);
 }
 
 //void light() {

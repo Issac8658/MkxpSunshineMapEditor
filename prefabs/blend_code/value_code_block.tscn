@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c4xwi2kbcnant"]
+
+[ext_resource type="StyleBox" uid="uid://dha78abe6j1jx" path="res://assets/block_code/little_node_top.tres" id="1_r66s3"]
+[ext_resource type="Script" uid="uid://prnjtrs0obp6" path="res://editor/block_code/BaseBlock.cs" id="1_te07a"]
+[ext_resource type="StyleBox" uid="uid://tlvac2hmcl8w" path="res://assets/block_code/little_node_middle.tres" id="2_te07a"]
+[ext_resource type="StyleBox" uid="uid://cci52012q72w2" path="res://assets/block_code/little_node_bottom.tres" id="3_serp4"]
+
+[node name="ValueCodeBlock" type="MarginContainer" unique_id=1289257834 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
+offset_left = 108.0
+offset_top = 19.0
+offset_right = 118.0
+offset_bottom = 29.0
+script = ExtResource("1_te07a")
+ConnectionType = 1
+MoveZone = NodePath(".")
+ContentConatiner = NodePath("Content")
+Connectors = []
+
+[node name="BG" type="VBoxContainer" parent="." unique_id=1908239692]
+modulate = Color(1, 0, 0.4453125, 1)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="BG" unique_id=2045103239]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_r66s3")
+
+[node name="PanelContainer2" type="PanelContainer" parent="BG" unique_id=372548179]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_te07a")
+
+[node name="PanelContainer3" type="PanelContainer" parent="BG" unique_id=480253073]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_serp4")
+
+[node name="Content" type="MarginContainer" parent="." unique_id=1679853314]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 1

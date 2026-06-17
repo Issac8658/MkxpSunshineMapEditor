@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dc2qwj3l8jfkc"]
-
-[ext_resource type="Texture2D" uid="uid://cso5ywb7ovbvn" path="res://assets/block_code/merge.png" id="1_5mc8l"]
-
-[resource]
-atlas = ExtResource("1_5mc8l")
-region = Rect2(20, 10, 6, 10)

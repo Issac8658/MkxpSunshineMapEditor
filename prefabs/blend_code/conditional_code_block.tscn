@@ -1,69 +1,79 @@
 [gd_scene format=3 uid="uid://cyslqc6v7tp7w"]
 
-[ext_resource type="Script" uid="uid://prnjtrs0obp6" path="res://editor/block_code/BaseBlock.cs" id="1_x4rxk"]
-[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/blend_code/left_edge.tres" id="2_qe76v"]
-[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/blend_code/middle.tres" id="3_1keg1"]
-[ext_resource type="StyleBox" uid="uid://2ejucrfn5e85" path="res://assets/block_code/blend_code/inset_down_arrow.tres" id="4_dhukj"]
-[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/blend_code/right_edge.tres" id="5_mkmmr"]
-[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/blend_code/center.tres" id="6_cidnf"]
-[ext_resource type="StyleBox" uid="uid://c7pr86sj42e0b" path="res://assets/block_code/blend_code/down_arrow.tres" id="7_wwh2w"]
-[ext_resource type="StyleBox" uid="uid://cfsrw01qume3e" path="res://assets/block_code/blend_code/right_side.tres" id="8_wlmnj"]
+[ext_resource type="Script" uid="uid://bwooi6yb8pc5k" path="res://editor/block_code/ConditionBlock.cs" id="1_1keg1"]
+[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/left_edge.tres" id="2_qe76v"]
+[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/middle.tres" id="3_1keg1"]
+[ext_resource type="StyleBox" uid="uid://2ejucrfn5e85" path="res://assets/block_code/inset_down_arrow.tres" id="4_dhukj"]
+[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/right_edge.tres" id="5_mkmmr"]
+[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/center.tres" id="6_cidnf"]
+[ext_resource type="StyleBox" uid="uid://c7pr86sj42e0b" path="res://assets/block_code/down_arrow.tres" id="7_wwh2w"]
+[ext_resource type="StyleBox" uid="uid://cfsrw01qume3e" path="res://assets/block_code/right_side.tres" id="8_wlmnj"]
+[ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="9_1keg1"]
+[ext_resource type="Script" uid="uid://by3m2c6n7kg3u" path="res://editor/block_code/BlockConnector.cs" id="9_qe76v"]
 
-[node name="MiddleCodeBlock" type="HBoxContainer" unique_id=1373917120 node_paths=PackedStringArray("MoveZone", "ContentConatiner")]
+[node name="ConditionalCodeBlock" type="VBoxContainer" unique_id=842369063 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
 custom_minimum_size = Vector2(0, 21)
 offset_right = 29.0
-offset_bottom = 16.0
+offset_bottom = 25.0
 theme_override_constants/separation = 0
-script = ExtResource("1_x4rxk")
-MoveZone = NodePath(".")
-ContentConatiner = NodePath("HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent")
+script = ExtResource("1_1keg1")
+MoveZone = NodePath("Block")
+ContentConatiner = NodePath("Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent")
+Connectors = [NodePath("Connector"), NodePath("Block/HBoxContainer2/HBoxContainer3/Connector")]
 
-[node name="Marker" type="PanelContainer" parent="." unique_id=1826739164]
+[node name="Block" type="HBoxContainer" parent="." unique_id=1027256799]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Marker" type="PanelContainer" parent="Block" unique_id=1826739164]
+self_modulate = Color(0, 0.77254903, 1, 1)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_qe76v")
 
-[node name="HBoxContainer2" type="VBoxContainer" parent="." unique_id=1396951509]
+[node name="HBoxContainer2" type="VBoxContainer" parent="Block" unique_id=1396951509]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2" unique_id=2040093919]
+[node name="HBoxContainer" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=2040093919]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Body" type="MarginContainer" parent="HBoxContainer2/HBoxContainer" unique_id=1785118667]
+[node name="Body" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer" unique_id=1785118667]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="BG" type="HBoxContainer" parent="HBoxContainer2/HBoxContainer/Body" unique_id=1640612831]
+[node name="BG" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body" unique_id=1640612831]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Start" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/BG" unique_id=1399241460]
+[node name="Start" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1399241460]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_1keg1")
 
-[node name="Arrow" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/BG" unique_id=1022321952]
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1022321952]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_dhukj")
 
-[node name="Middle" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/BG" unique_id=1782373260]
+[node name="Middle" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1782373260]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_1keg1")
 
-[node name="End" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/BG" unique_id=745384774]
+[node name="End" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=745384774]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_mkmmr")
 
-[node name="ContentMargin" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/Body" unique_id=484019789]
+[node name="ContentMargin" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer/Body" unique_id=484019789]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 mouse_filter = 2
@@ -72,53 +82,57 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 1
 
-[node name="Content" type="HBoxContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin" unique_id=1781314567]
+[node name="Content" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin" unique_id=1781314567]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Filler2" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=56037409]
+[node name="Filler2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=56037409]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1829094289]
+[node name="MarginContainer" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1829094289]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 3
 
-[node name="Filler3" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/MarginContainer" unique_id=1092624016]
+[node name="Filler3" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/MarginContainer" unique_id=1092624016]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="Filler3" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=203634038]
-custom_minimum_size = Vector2(4, 0)
+[node name="Filler3" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=203634038]
+custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="Arrow" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=986945148]
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=986945148]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("7_wwh2w")
 
-[node name="InputContent" type="HBoxContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=974330061]
+[node name="InputContent" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=974330061]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Filler" type="PanelContainer" parent="HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1347046798]
+[node name="Filler" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1347046798]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="Marker2" type="PanelContainer" parent="HBoxContainer2" unique_id=411818961]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=570266277]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Marker2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer3" unique_id=411818961]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -126,48 +140,55 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("8_wlmnj")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2" unique_id=1447070182]
+[node name="Connector" parent="Block/HBoxContainer2/HBoxContainer3" unique_id=331393397 instance=ExtResource("9_1keg1")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=1447070182]
 custom_minimum_size = Vector2(20, 12)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="Body" type="MarginContainer" parent="HBoxContainer2/HBoxContainer2" unique_id=170641201]
+[node name="Body" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer2" unique_id=170641201]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="BG" type="HBoxContainer" parent="HBoxContainer2/HBoxContainer2/Body" unique_id=36965258]
+[node name="BG" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body" unique_id=36965258]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Middle" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/BG" unique_id=1703715020]
+[node name="Middle" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/BG" unique_id=1703715020]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_1keg1")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/HBoxContainer2/Body/BG/Middle" unique_id=1445472009]
+[node name="MarginContainer" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/BG/Middle" unique_id=1445472009]
 layout_mode = 2
 theme_override_constants/margin_left = -1
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/BG/Middle/MarginContainer" unique_id=1304558395]
+[node name="PanelContainer" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/BG/Middle/MarginContainer" unique_id=1304558395]
 custom_minimum_size = Vector2(4, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="End" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/BG" unique_id=1159341026]
+[node name="End" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/BG" unique_id=1159341026]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_mkmmr")
 
-[node name="ContentMargin" type="MarginContainer" parent="HBoxContainer2/HBoxContainer2/Body" unique_id=1329412436]
+[node name="ContentMargin" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body" unique_id=1329412436]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 mouse_filter = 2
@@ -176,25 +197,32 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 1
 
-[node name="Content" type="HBoxContainer" parent="HBoxContainer2/HBoxContainer2/Body/ContentMargin" unique_id=1993904374]
+[node name="Content" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/ContentMargin" unique_id=1993904374]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Filler2" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=1879230932]
+[node name="Filler2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=1879230932]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
 
-[node name="Arrow" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=503542072]
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=503542072]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("7_wwh2w")
 
-[node name="Filler" type="PanelContainer" parent="HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=1816227132]
+[node name="Filler" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer2/Body/ContentMargin/Content" unique_id=1816227132]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=313400029]
+layout_mode = 2
+script = ExtResource("9_qe76v")
+
+[node name="Connector" parent="." unique_id=986627188 instance=ExtResource("9_1keg1")]
+layout_mode = 2

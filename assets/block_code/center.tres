@@ -1,8 +1,7 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://dvpjqvbkya5ll"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://461ta5cxg2lg"]
+
+[ext_resource type="Texture2D" uid="uid://ggkcw51pkm1d" path="res://assets/block_code/blend_code.png" id="1_llm0r"]
 
 [resource]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
-border_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
-corner_detail = 1
+texture = ExtResource("1_llm0r")
+region_rect = Rect2(26, 4, 1, 3)

@@ -6,6 +6,10 @@ public partial class Panorama : Sprite2D
 {
 	[Export]
 	public Camera2D Camera;
+	[Export]
+	public bool InvertOffset = false;
+	[Export]
+	public double Zoom = 2;
 
 	public override void _Ready()
 	{
@@ -31,6 +35,7 @@ public partial class Panorama : Sprite2D
 	public override void _Process(double delta)
 	{
 		(Material as ShaderMaterial).SetShaderParameter("zoom", Camera.Zoom.X);
-		(Material as ShaderMaterial).SetShaderParameter("offset", Camera.Offset);
+		(Material as ShaderMaterial).SetShaderParameter("bgZoom", Zoom);
+		(Material as ShaderMaterial).SetShaderParameter("offset", (InvertOffset ? Camera.Position + Camera.Offset : Camera.Offset) + Position);
 	}
 }

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pdlehc2u1qv2"]
+
+[ext_resource type="Script" uid="uid://by3m2c6n7kg3u" path="res://editor/block_code/BlockConnector.cs" id="1_kder7"]
+
+[node name="Connector" type="MarginContainer" unique_id=331393397 node_paths=PackedStringArray("ConnectionZone")]
+mouse_filter = 2
+script = ExtResource("1_kder7")
+ConnectionZone = NodePath("ZoneMargin/ConnectionZone")
+
+[node name="ZoneMargin" type="MarginContainer" parent="." unique_id=1054269854]
+z_index = 42
+z_as_relative = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = -6
+theme_override_constants/margin_bottom = -6
+
+[node name="ConnectionZone" type="Control" parent="ZoneMargin" unique_id=42875904]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 8
