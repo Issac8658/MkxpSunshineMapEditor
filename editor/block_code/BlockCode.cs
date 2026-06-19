@@ -36,21 +36,28 @@ namespace BlockCode
 			*/
 		}
 
-		public void BlockMoving(BaseBlock block) => _movingBlock = block;
+		public void BlockStartedMoving(BaseBlock block) {
+			BlockStoppedMoving(_movingBlock);
+			_movingBlock = block;
+		}
 		public void BlockStoppedMoving(BaseBlock block)
 		{
+			//GD.Print("Stopped in code");
 			if (block == _movingBlock)
 			{
 				_movingBlock = null;
-				_hoveredConnector?.Connect(block);
-				_hoveredConnector?.RemoveChild(_blockPreviewControl);
+				if (CanConnect(_hoveredConnector, block))
+				{
+					_hoveredConnector?.Connect(block);
+					_blockPreviewControl.GetParent()?.RemoveChild(_blockPreviewControl);
+				}
 			}
 		}
 
 		public void ConnectorHovered(BlockConnector connector)
 		{
-			GD.Print("Hovered");
-			if (!connector.IsConnected() && _movingBlock != null && !_movingBlock.Connectors.Contains(connector))
+			//GD.Print("Hovered");
+			if (CanConnect(connector, _movingBlock))
 			{
 				_hoveredConnector = connector;
 				_blockPreviewControl.CustomMinimumSize = _movingBlock.Size;
@@ -67,63 +74,21 @@ namespace BlockCode
 				_hoveredConnector = null;
 			}
 		}
-		/*
-		private void ConnectBlock(Node node)
+		
+		public static bool CanConnect(BlockConnector connector, BaseBlock block)
 		{
-			if (node is BaseBlock block)
+			if (connector == null || block == null || connector.IsConnected() || block.Connectors.Contains(connector))
+				return false;
+			
+			Node previousNode = connector.GetParent();
+			while (previousNode != null && previousNode is not BlockCode)
 			{
-				void Moving() => BlockMoving(block);
-				void MovingStopped() => BlockStoppedMoving(block);
-
-				_movingStartedHandlers[block] = Moving;
-				_movingStoppedHandlers[block] = MovingStopped;
-
-				block.StartMoving += Moving;
-				block.StoppedMoving += MovingStopped;
-
-				foreach (BlockConnector connector in block.Connectors)
-				{
-					void Hovered() => ConnectorHovered(connector);
-					void Unhovered() => ConnectorUnhovered(connector);
-
-					_hoverHandlers[connector] = Hovered;
-					_unhoverHandlers[connector] = Unhovered;
-
-					connector.MouseHovered += Hovered;
-					connector.MouseUnhovered += Unhovered;
-				}
+				if (previousNode == block)
+					return false;
+				previousNode = previousNode.GetParent();
 			}
-		}
 
-		private void DisconnectBlock(Node node)
-		{
-			if (node is BaseBlock block)
-			{
-				if (_movingStartedHandlers.TryGetValue(block, out BaseBlock.StartMovingEventHandler movingStartedAction))
-				{
-					block.StartMoving -= movingStartedAction;
-					_movingStartedHandlers.Remove(block);
-				}
-				if (_movingStoppedHandlers.TryGetValue(block, out BaseBlock.StoppedMovingEventHandler movingStoppedAction))
-				{
-					block.StoppedMoving -= movingStoppedAction;
-					_movingStoppedHandlers.Remove(block);
-				}
-				foreach (BlockConnector connector in block.Connectors)
-				{
-					if (_hoverHandlers.TryGetValue(connector, out BlockConnector.MouseHoveredEventHandler hoverAction))
-					{
-						connector.MouseHovered -= hoverAction;
-						_hoverHandlers.Remove(connector);
-					}
-					if (_unhoverHandlers.TryGetValue(connector, out BlockConnector.MouseUnhoveredEventHandler unhoverAction))
-					{
-						connector.MouseUnhovered -= unhoverAction;
-						_unhoverHandlers.Remove(connector);
-					}
-				}
-			}
+			return true;
 		}
-		*/
 	}
 }

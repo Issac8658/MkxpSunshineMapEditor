@@ -70,17 +70,43 @@ script = ExtResource("2_lf7u5")
 BlockPreviewTemplate = ExtResource("6_jqbkw")
 metadata/_custom_type_script = "uid://cjxqkitqydi4d"
 
-[node name="MiddleCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 instance=ExtResource("30_w7uul")]
+[node name="TopCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 instance=ExtResource("30_w7uul")]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 10.0
 offset_right = 95.0
 offset_bottom = 26.0
 
-[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="0" unique_id=2086781360 instance=ExtResource("35_w7uul")]
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="0" unique_id=2086781360 instance=ExtResource("35_w7uul")]
 layout_mode = 2
 
-[node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="1" unique_id=1867175421 instance=ExtResource("36_0augb")]
+[node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="1" unique_id=1867175421 instance=ExtResource("36_0augb")]
+layout_mode = 2
+
+[node name="TopCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=284816571 instance=ExtResource("30_w7uul")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 54.0
+offset_right = 151.0
+offset_bottom = 70.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(284816571, 641951453) index="0" unique_id=606715979 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(284816571, 641951453) index="1" unique_id=1795168083 instance=ExtResource("36_0augb")]
+layout_mode = 2
+
+[node name="TopCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1309932518 instance=ExtResource("30_w7uul")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 15.0
+offset_right = 281.0
+offset_bottom = 31.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1309932518, 641951453) index="0" unique_id=1814599483 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1309932518, 641951453) index="1" unique_id=322568288 instance=ExtResource("36_0augb")]
 layout_mode = 2
 
 [node name="MiddleCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=473465318 instance=ExtResource("31_ici4b")]
@@ -91,6 +117,56 @@ offset_right = 79.0
 offset_bottom = 37.0
 
 [node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(473465318, 974330061) index="0" unique_id=1322079669 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="MiddleCodeBlock5" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1361412505 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 16.0
+offset_right = 175.0
+offset_bottom = 32.0
+
+[node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock5/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1361412505, 974330061) index="0" unique_id=1180307857 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="MiddleCodeBlock6" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1236857835 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 82.0
+offset_right = 268.0
+offset_bottom = 98.0
+
+[node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock6/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1236857835, 974330061) index="0" unique_id=2055120700 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="MiddleCodeBlock7" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1637088347 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 40.0
+offset_right = 287.0
+offset_bottom = 56.0
+
+[node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock7/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1637088347, 974330061) index="0" unique_id=817971774 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="MiddleCodeBlock8" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=745508293 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 130.0
+offset_right = 268.0
+offset_bottom = 146.0
+
+[node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock8/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(745508293, 974330061) index="0" unique_id=1392643374 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="MiddleCodeBlock9" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1956037599 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 159.0
+offset_right = 223.0
+offset_bottom = 175.0
+
+[node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock9/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1956037599, 974330061) index="0" unique_id=402164838 instance=ExtResource("35_w7uul")]
 layout_mode = 2
 
 [node name="MiddleCodeBlock4" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1282020283 instance=ExtResource("31_ici4b")]
@@ -113,6 +189,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 10.0
 offset_bottom = 10.0
+ConnectionType = 0
 
 [node name="ConditionalCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1373917120 instance=ExtResource("7_kkquf")]
 layout_mode = 0
@@ -124,6 +201,46 @@ offset_bottom = 177.0
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1373917120, 974330061) index="0" unique_id=2062565822 instance=ExtResource("35_w7uul")]
 layout_mode = 2
 
-[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock"]
+[node name="ConditionalCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=842369063 instance=ExtResource("7_kkquf")]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 93.0
+offset_right = 198.0
+offset_bottom = 126.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(842369063, 974330061) index="0" unique_id=1160930628 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="ConditionalCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=462515333 instance=ExtResource("7_kkquf")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 97.0
+offset_right = 89.0
+offset_bottom = 130.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(462515333, 974330061) index="0" unique_id=1138773490 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[node name="ConditionalCodeBlock4" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1140293414 instance=ExtResource("7_kkquf")]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 39.0
+offset_right = 202.0
+offset_bottom = 72.0
+
+[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1140293414, 974330061) index="0" unique_id=1880376347 instance=ExtResource("35_w7uul")]
+layout_mode = 2
+
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock5"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock6"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock7"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock8"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock9"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4"]

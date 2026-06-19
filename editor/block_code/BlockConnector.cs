@@ -17,8 +17,10 @@ namespace BlockCode
 
 		public enum BlockConnectionType
 		{
+			None = -1,
 			Default = 0,
-			Value = 1
+			Variant = 1,
+			Bool = 2
 		}
 
 		[Export]
@@ -67,7 +69,7 @@ namespace BlockCode
 					else
 						EmitSignal("MouseUnhovered");
 					_hovered = mouseHovered;
-					GD.Print(mouseHovered);
+					//GD.Print(mouseHovered);
 				}
 			}
 		}
