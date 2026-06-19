@@ -9,13 +9,13 @@
 [ext_resource type="StyleBox" uid="uid://c7pr86sj42e0b" path="res://assets/block_code/down_arrow.tres" id="7_wwh2w"]
 [ext_resource type="StyleBox" uid="uid://cfsrw01qume3e" path="res://assets/block_code/right_side.tres" id="8_wlmnj"]
 [ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="9_1keg1"]
-[ext_resource type="Script" uid="uid://by3m2c6n7kg3u" path="res://editor/block_code/BlockConnector.cs" id="9_qe76v"]
 
 [node name="ConditionalCodeBlock" type="VBoxContainer" unique_id=842369063 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
 custom_minimum_size = Vector2(0, 21)
 offset_right = 29.0
 offset_bottom = 25.0
-theme_override_constants/separation = 0
+mouse_filter = 2
+theme_override_constants/separation = -1
 script = ExtResource("1_1keg1")
 MoveZone = NodePath("Block")
 ContentConatiner = NodePath("Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent")
@@ -143,9 +143,8 @@ theme_override_styles/panel = ExtResource("8_wlmnj")
 [node name="Connector" parent="Block/HBoxContainer2/HBoxContainer3" unique_id=331393397 instance=ExtResource("9_1keg1")]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 4
+size_flags_vertical = 0
+theme_override_constants/margin_bottom = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=1447070182]
 custom_minimum_size = Vector2(20, 12)
@@ -219,10 +218,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_cidnf")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=313400029]
-layout_mode = 2
-script = ExtResource("9_qe76v")
 
 [node name="Connector" parent="." unique_id=986627188 instance=ExtResource("9_1keg1")]
 layout_mode = 2

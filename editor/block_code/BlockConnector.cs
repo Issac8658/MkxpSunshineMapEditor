@@ -5,7 +5,15 @@ namespace BlockCode
 	[Icon("res://assets/icons/block_code/connector.tres")]
 	public partial class BlockConnector : Node
 	{
-		public BaseBlock _connection = null;
+		[Signal]
+		public delegate void MouseHoveredEventHandler();
+		[Signal]
+		public delegate void MouseUnhoveredEventHandler();
+
+		private BaseBlock _connection = null;
+		private bool _hovered = false;
+		private Node _oldConnectionParent;
+		private Viewport _viewport;
 
 		public enum BlockConnectionType
 		{
@@ -20,7 +28,7 @@ namespace BlockCode
 		/// </summary>
 		[Export]
 		public Control ConnectionZone;
-		[Export]
+
 		public BaseBlock Connection
 		{
 			get => _connection;
@@ -37,7 +45,32 @@ namespace BlockCode
 			}
 		}
 
-		private Node _oldConnectionParent;
+		public override void _EnterTree()
+		{
+			_viewport = GetViewport();
+		}
+
+		public override void _ExitTree()
+		{
+			_viewport = null;
+		}
+
+		public override void _Process(double delta)
+		{
+			if (_viewport != null)
+			{
+				bool mouseHovered = ConnectionZone.GetGlobalRect().HasPoint(ConnectionZone.GetGlobalMousePosition());
+				if (mouseHovered != _hovered)
+				{
+					if (mouseHovered)
+						EmitSignal("MouseHovered");
+					else
+						EmitSignal("MouseUnhovered");
+					_hovered = mouseHovered;
+					GD.Print(mouseHovered);
+				}
+			}
+		}
 
 		public void Connect(BaseBlock block)
 		{
@@ -47,6 +80,7 @@ namespace BlockCode
 				block.Disconnect();
 				_oldConnectionParent = block.GetParent();
 				_connection = block;
+				_oldConnectionParent?.RemoveChild(_connection);
 				AddChild(_connection);
 				block.ConnectedTo = this;
 			}
@@ -56,11 +90,16 @@ namespace BlockCode
 		{
 			if (_connection != null)
 			{
+				Vector2 oldPos = _connection.GlobalPosition;
+				_connection.GetParent()?.RemoveChild(_connection);
 				_oldConnectionParent.AddChild(_connection);
+				_connection.GlobalPosition = oldPos;
 				_oldConnectionParent = null;
 				_connection.ConnectedTo = null;
 				_connection = null;
 			}
 		}
+
+		public bool IsConnected() => _connection != null;
 	}
 }

@@ -67,6 +67,8 @@ stretch = true
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
 canvas_item_default_texture_repeat = 1
 size = Vector2i(1152, 648)
@@ -295,7 +297,9 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Interface/VBoxContainer/Workzone/Pages/EventsEditorTab/PanelContainer/SubViewportContainer" unique_id=397813751]
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(624, 613)
+render_target_update_mode = 4
 
 [node name="DatabaseEditorTab" type="MarginContainer" parent="Interface/VBoxContainer/Workzone/Pages" unique_id=1063929047]
 visible = false

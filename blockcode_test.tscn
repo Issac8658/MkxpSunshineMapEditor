@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ba10jd1j5u254" path="res://assets/block_code/grid.tres" id="3_jqbkw"]
 [ext_resource type="Script" uid="uid://txfilgfyy81" path="res://editor/map/Panorama.cs" id="4_jqbkw"]
 [ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/value_code_block.tscn" id="6_fjb1c"]
+[ext_resource type="PackedScene" uid="uid://dcq0xp3for2q0" path="res://prefabs/blend_code/block_preview.tscn" id="6_jqbkw"]
 [ext_resource type="PackedScene" uid="uid://cyslqc6v7tp7w" path="res://prefabs/blend_code/conditional_code_block.tscn" id="7_kkquf"]
-[ext_resource type="StyleBox" uid="uid://dg075i0eaacnm" path="res://assets/block_code/preview.tres" id="9_moaje"]
 [ext_resource type="Script" uid="uid://ptrqkt5cgyuy" path="res://editor/map/CameraControls.cs" id="29_ici4b"]
 [ext_resource type="PackedScene" uid="uid://c07u1780p714x" path="res://prefabs/blend_code/start_code_block.tscn" id="30_w7uul"]
 [ext_resource type="PackedScene" uid="uid://do5gu5ipfwrd2" path="res://prefabs/blend_code/middle_code_block.tscn" id="31_ici4b"]
@@ -32,8 +32,10 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1077466116]
 handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
-oversampling_override = 4.0
+oversampling_override = 2.0
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -65,15 +67,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_lf7u5")
+BlockPreviewTemplate = ExtResource("6_jqbkw")
 metadata/_custom_type_script = "uid://cjxqkitqydi4d"
 
-[node name="MiddleCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 node_paths=PackedStringArray("Connectors") instance=ExtResource("30_w7uul")]
+[node name="MiddleCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 instance=ExtResource("30_w7uul")]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 10.0
 offset_right = 95.0
 offset_bottom = 26.0
-Connectors = []
 
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="0" unique_id=2086781360 instance=ExtResource("35_w7uul")]
 layout_mode = 2
@@ -81,32 +83,29 @@ layout_mode = 2
 [node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="1" unique_id=1867175421 instance=ExtResource("36_0augb")]
 layout_mode = 2
 
-[node name="MiddleCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=473465318 node_paths=PackedStringArray("Connectors") instance=ExtResource("31_ici4b")]
+[node name="MiddleCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=473465318 instance=ExtResource("31_ici4b")]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 38.0
-offset_right = 147.0
-offset_bottom = 54.0
-Connectors = []
+offset_left = 10.0
+offset_top = 21.0
+offset_right = 79.0
+offset_bottom = 37.0
 
 [node name="Text2" parent="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(473465318, 974330061) index="0" unique_id=1322079669 instance=ExtResource("35_w7uul")]
 layout_mode = 2
 
-[node name="MiddleCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1393645428 node_paths=PackedStringArray("Connectors") instance=ExtResource("31_ici4b")]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 49.0
-offset_right = 45.0
-offset_bottom = 57.0
-Connectors = []
-
-[node name="MiddleCodeBlock4" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1282020283 node_paths=PackedStringArray("Connectors") instance=ExtResource("31_ici4b")]
+[node name="MiddleCodeBlock4" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1282020283 instance=ExtResource("31_ici4b")]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 64.0
 offset_right = 79.0
 offset_bottom = 72.0
-Connectors = []
+
+[node name="MiddleCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1393645428 instance=ExtResource("31_ici4b")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 65.0
+offset_right = 34.0
+offset_bottom = 73.0
 
 [node name="ValueCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1289257834 instance=ExtResource("6_fjb1c")]
 layout_mode = 0
@@ -115,40 +114,15 @@ offset_top = 0.0
 offset_right = 10.0
 offset_bottom = 10.0
 
-[node name="ConditionalCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1373917120 node_paths=PackedStringArray("Connectors") instance=ExtResource("7_kkquf")]
+[node name="ConditionalCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1373917120 instance=ExtResource("7_kkquf")]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 144.0
 offset_right = 134.0
 offset_bottom = 177.0
-Connectors = []
 
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1373917120, 974330061) index="0" unique_id=2062565822 instance=ExtResource("35_w7uul")]
 layout_mode = 2
-
-[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1907645661]
-layout_mode = 0
-offset_left = 157.0
-offset_top = 38.0
-offset_right = 226.0
-offset_bottom = 54.0
-theme_override_styles/panel = ExtResource("9_moaje")
-
-[node name="Panel2" type="Panel" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=714113114]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 64.0
-offset_right = 118.0
-offset_bottom = 72.0
-theme_override_styles/panel = ExtResource("9_moaje")
-
-[node name="Panel3" type="Panel" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=130242266]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 144.0
-offset_right = 465.0
-offset_bottom = 246.0
-theme_override_styles/panel = ExtResource("9_moaje")
 
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock2"]

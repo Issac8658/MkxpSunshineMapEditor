@@ -9,10 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="7_qeneo"]
 
 [node name="MiddleCodeBlock" type="VBoxContainer" unique_id=1361412505 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
-offset_right = 33.0
+offset_right = 29.0
 offset_bottom = 8.0
-mouse_filter = 0
-theme_override_constants/separation = 0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = -1
 script = ExtResource("1_qeneo")
 MoveZone = NodePath("HBoxContainer")
 ContentConatiner = NodePath("HBoxContainer/Body/ContentMargin/Content/InputContent")

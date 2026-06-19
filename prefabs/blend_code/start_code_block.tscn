@@ -12,12 +12,12 @@
 [node name="StartCodeBlock" type="VBoxContainer" unique_id=284816571 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
 offset_right = 29.0
 offset_bottom = 8.0
-mouse_filter = 0
-theme_override_constants/separation = 0
+mouse_filter = 2
+theme_override_constants/separation = -1
 script = ExtResource("1_bpupf")
 MoveZone = NodePath("Block")
 ContentConatiner = NodePath("Block/Body/ContentMargin/Content/InputContent")
-Connectors = [null]
+Connectors = [NodePath("Connector")]
 
 [node name="Block" type="HBoxContainer" parent="." unique_id=396897964]
 layout_mode = 2
