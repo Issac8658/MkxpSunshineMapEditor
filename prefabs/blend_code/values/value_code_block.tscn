@@ -6,10 +6,9 @@
 [ext_resource type="StyleBox" uid="uid://cci52012q72w2" path="res://assets/block_code/little_node_bottom.tres" id="3_serp4"]
 
 [node name="ValueCodeBlock" type="MarginContainer" unique_id=1289257834 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
-offset_left = 108.0
-offset_top = 19.0
-offset_right = 118.0
-offset_bottom = 29.0
+custom_minimum_size = Vector2(10, 10)
+offset_right = 10.0
+offset_bottom = 10.0
 script = ExtResource("1_te07a")
 ConnectionType = 1
 MoveZone = NodePath(".")

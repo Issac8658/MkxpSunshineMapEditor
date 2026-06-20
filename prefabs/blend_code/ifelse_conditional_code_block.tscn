@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://002ru367ao3o"]
+
+[ext_resource type="Script" uid="uid://bwooi6yb8pc5k" path="res://editor/block_code/ConditionBlock.cs" id="1_cjmui"]
+[ext_resource type="StyleBox" uid="uid://dkkg3s5q36ppu" path="res://assets/block_code/left_edge.tres" id="2_m1t04"]
+[ext_resource type="StyleBox" uid="uid://df0s06of2wslm" path="res://assets/block_code/middle.tres" id="3_vwhr3"]
+[ext_resource type="StyleBox" uid="uid://2ejucrfn5e85" path="res://assets/block_code/inset_down_arrow.tres" id="4_hap6w"]
+[ext_resource type="StyleBox" uid="uid://4qxy1qax8dkp" path="res://assets/block_code/right_edge.tres" id="5_2xqlm"]
+[ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/center.tres" id="6_upp41"]
+[ext_resource type="StyleBox" uid="uid://c7pr86sj42e0b" path="res://assets/block_code/down_arrow.tres" id="7_x0vwa"]
+[ext_resource type="StyleBox" uid="uid://cfsrw01qume3e" path="res://assets/block_code/right_side.tres" id="8_14rpr"]
+[ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="9_42mbh"]
+[ext_resource type="PackedScene" uid="uid://belshwjswsq03" path="res://prefabs/blend_code/code_block_part_value_input.tscn" id="9_vwhr3"]
+[ext_resource type="PackedScene" uid="uid://tyjdcoicenbt" path="res://prefabs/blend_code/code_block_part_text.tscn" id="10_m1t04"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1t04"]
+font_size = 6
+
+[node name="IfElseConditionalCodeBlock" type="VBoxContainer" unique_id=842369063 node_paths=PackedStringArray("MoveZone", "ContentConatiner", "Connectors")]
+custom_minimum_size = Vector2(0, 21)
+offset_right = 29.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_constants/separation = -1
+script = ExtResource("1_cjmui")
+MoveZone = NodePath("Block")
+ContentConatiner = NodePath("Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent")
+Connectors = [NodePath("Connector"), NodePath("Block/HBoxContainer2/HBoxContainer3/Connector"), NodePath("Block/HBoxContainer2/HBoxContainer4/Connector")]
+
+[node name="Block" type="HBoxContainer" parent="." unique_id=1027256799]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Marker" type="PanelContainer" parent="Block" unique_id=1826739164]
+self_modulate = Color(0, 0.77254903, 1, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_m1t04")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Block" unique_id=1396951509]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=2040093919]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Body" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer" unique_id=1785118667]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BG" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body" unique_id=1640612831]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Start" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1399241460]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_vwhr3")
+
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1022321952]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_hap6w")
+
+[node name="Middle" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1782373260]
+custom_minimum_size = Vector2(11, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_vwhr3")
+
+[node name="End" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/BG" unique_id=1479622035]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_2xqlm")
+
+[node name="ContentMargin" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer/Body" unique_id=484019789]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="Content" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin" unique_id=1781314567]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Filler2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=56037409]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="MarginContainer" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1829094289]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 3
+
+[node name="Filler3" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/MarginContainer" unique_id=1092624016]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="Filler3" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=203634038]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=986945148]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_x0vwa")
+
+[node name="InputContent" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=974330061]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Text" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" unique_id=2086781360 instance=ExtResource("10_m1t04")]
+layout_mode = 2
+
+[node name="Label" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text/PanelContainer" parent_id_path=PackedInt32Array(2086781360, 1300910116) index="0" unique_id=852197062]
+text = "If"
+
+[node name="ValueInput" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" unique_id=1867175421 instance=ExtResource("9_vwhr3")]
+layout_mode = 2
+
+[node name="Connector" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput/MarginContainer/Content" parent_id_path=PackedInt32Array(1867175421, 1278214842) index="0" unique_id=1826513651]
+ConnectionType = 2
+
+[node name="Text2" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" unique_id=1374073008 instance=ExtResource("10_m1t04")]
+layout_mode = 2
+
+[node name="Label" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2/PanelContainer" parent_id_path=PackedInt32Array(1374073008, 1300910116) index="0" unique_id=852197062]
+text = "do"
+
+[node name="Filler" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content" unique_id=1347046798]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=570266277]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Marker2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer3" unique_id=411818961]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("8_14rpr")
+
+[node name="Connector" parent="Block/HBoxContainer2/HBoxContainer3" unique_id=331393397 instance=ExtResource("9_42mbh")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=1622601983]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Body" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer6" unique_id=1547102844]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BG" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body" unique_id=1177761906]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Middle" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/BG" unique_id=754021405]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_vwhr3")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/BG/Middle" unique_id=52199879]
+layout_mode = 2
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/BG/Middle/MarginContainer2" unique_id=1182521208]
+custom_minimum_size = Vector2(4, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="End" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/BG" unique_id=633264645]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_2xqlm")
+
+[node name="ContentMargin" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body" unique_id=1992135844]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="Content" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin" unique_id=1921770032]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Filler2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content" unique_id=1377573339]
+custom_minimum_size = Vector2(11, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content" unique_id=837811317]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_x0vwa")
+
+[node name="MarginContainer" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content" unique_id=676144856]
+layout_mode = 2
+theme_override_constants/margin_left = -7
+theme_override_constants/margin_right = -1
+
+[node name="InputContent" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content/MarginContainer" unique_id=912176113]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Text" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content/MarginContainer/InputContent" unique_id=569579606 instance=ExtResource("10_m1t04")]
+layout_mode = 2
+
+[node name="Label" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content/MarginContainer/InputContent/Text/PanelContainer" parent_id_path=PackedInt32Array(569579606, 1300910116) index="0" unique_id=852197062]
+text = "Else"
+label_settings = SubResource("LabelSettings_m1t04")
+
+[node name="Filler" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content" unique_id=1915954491]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=515485665]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Marker2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer4" unique_id=1484568207]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("8_14rpr")
+
+[node name="Connector" parent="Block/HBoxContainer2/HBoxContainer4" unique_id=1495047123 instance=ExtResource("9_42mbh")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Block/HBoxContainer2" unique_id=1149063044]
+custom_minimum_size = Vector2(20, 11)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Body" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer5" unique_id=992348478]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BG" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body" unique_id=1244694463]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Middle" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/BG" unique_id=632145922]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_vwhr3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/BG/Middle" unique_id=633349220]
+layout_mode = 2
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/BG/Middle/MarginContainer" unique_id=2039729817]
+custom_minimum_size = Vector2(4, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="End" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/BG" unique_id=799663321]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_2xqlm")
+
+[node name="ContentMargin" type="MarginContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body" unique_id=573698396]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="Content" type="HBoxContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/ContentMargin" unique_id=1846519767]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Filler2" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/ContentMargin/Content" unique_id=1631102294]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="Arrow" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/ContentMargin/Content" unique_id=1868362790]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_x0vwa")
+
+[node name="Filler" type="PanelContainer" parent="Block/HBoxContainer2/HBoxContainer5/Body/ContentMargin/Content" unique_id=260962989]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("6_upp41")
+
+[node name="Connector" parent="." unique_id=986627188 instance=ExtResource("9_42mbh")]
+layout_mode = 2
+
+[editable path="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
+[editable path="Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content/MarginContainer/InputContent/Text"]

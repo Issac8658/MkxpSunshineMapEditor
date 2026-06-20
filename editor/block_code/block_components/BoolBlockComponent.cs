@@ -2,11 +2,8 @@ using Godot;
 
 namespace BlockCode
 {
-    public partial class BoolBlockComponent : BaseBlockComponent
+    public partial class BoolBlockComponent : ValueBlockComponent
     {
-        [Export]
-        public BlockConnector Connector;
-
-        public bool GetValue() => Connector.Connection is BoolValueBlock valueBlock && valueBlock.GetValue();
+        public override Variant GetValue() => Connector.Connection is BoolValueBlock valueBlock && valueBlock.GetValue();
     }
 }

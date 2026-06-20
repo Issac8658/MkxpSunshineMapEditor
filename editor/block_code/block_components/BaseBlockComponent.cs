@@ -2,7 +2,5 @@ using Godot;
 
 namespace BlockCode
 {
-    public partial class BaseBlockComponent : Control
-    {
-    }
+    public partial class BaseBlockComponent : Control;
 }

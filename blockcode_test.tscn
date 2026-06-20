@@ -4,9 +4,13 @@
 [ext_resource type="Material" uid="uid://do8grkvfwmsxj" path="res://materials/plane_mat.tres" id="2_mfj56"]
 [ext_resource type="Texture2D" uid="uid://ba10jd1j5u254" path="res://assets/block_code/grid.tres" id="3_jqbkw"]
 [ext_resource type="Script" uid="uid://txfilgfyy81" path="res://editor/map/Panorama.cs" id="4_jqbkw"]
-[ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/value_code_block.tscn" id="6_fjb1c"]
+[ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/values/value_code_block.tscn" id="6_fjb1c"]
 [ext_resource type="PackedScene" uid="uid://dcq0xp3for2q0" path="res://prefabs/blend_code/block_preview.tscn" id="6_jqbkw"]
+[ext_resource type="PackedScene" uid="uid://b12vm5s2iu0fa" path="res://prefabs/blend_code/values/block_preview_value.tscn" id="7_2i4as"]
 [ext_resource type="PackedScene" uid="uid://cyslqc6v7tp7w" path="res://prefabs/blend_code/conditional_code_block.tscn" id="7_kkquf"]
+[ext_resource type="PackedScene" uid="uid://002ru367ao3o" path="res://prefabs/blend_code/ifelse_conditional_code_block.tscn" id="13_6i630"]
+[ext_resource type="PackedScene" uid="uid://do2kbfyjfnhs0" path="res://prefabs/blend_code/values/false.tscn" id="15_316o2"]
+[ext_resource type="PackedScene" uid="uid://cl0t2hnb1gpor" path="res://prefabs/blend_code/values/true.tscn" id="16_215xb"]
 [ext_resource type="Script" uid="uid://ptrqkt5cgyuy" path="res://editor/map/CameraControls.cs" id="29_ici4b"]
 [ext_resource type="PackedScene" uid="uid://c07u1780p714x" path="res://prefabs/blend_code/start_code_block.tscn" id="30_w7uul"]
 [ext_resource type="PackedScene" uid="uid://do5gu5ipfwrd2" path="res://prefabs/blend_code/middle_code_block.tscn" id="31_ici4b"]
@@ -35,7 +39,7 @@ handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
-oversampling_override = 2.0
+oversampling_override = 4.0
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -68,14 +72,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_lf7u5")
 BlockPreviewTemplate = ExtResource("6_jqbkw")
+BlockValuePreviewTemplate = ExtResource("7_2i4as")
 metadata/_custom_type_script = "uid://cjxqkitqydi4d"
 
-[node name="TopCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 instance=ExtResource("30_w7uul")]
+[node name="TopCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1622256688 node_paths=PackedStringArray("Connectors") instance=ExtResource("30_w7uul")]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 10.0
 offset_right = 95.0
 offset_bottom = 26.0
+Connectors = [NodePath("Connector"), NodePath("Block/Body/ContentMargin/Content/InputContent/ValueInput/MarginContainer/Content/Connector")]
 
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="0" unique_id=2086781360 instance=ExtResource("35_w7uul")]
 layout_mode = 2
@@ -83,12 +89,13 @@ layout_mode = 2
 [node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1622256688, 641951453) index="1" unique_id=1867175421 instance=ExtResource("36_0augb")]
 layout_mode = 2
 
-[node name="TopCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=284816571 instance=ExtResource("30_w7uul")]
+[node name="TopCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=284816571 node_paths=PackedStringArray("Connectors") instance=ExtResource("30_w7uul")]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 54.0
 offset_right = 151.0
 offset_bottom = 70.0
+Connectors = [NodePath("Connector"), NodePath("Block/Body/ContentMargin/Content/InputContent/ValueInput/MarginContainer/Content/Connector")]
 
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(284816571, 641951453) index="0" unique_id=606715979 instance=ExtResource("35_w7uul")]
 layout_mode = 2
@@ -96,12 +103,13 @@ layout_mode = 2
 [node name="ValueInput" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(284816571, 641951453) index="1" unique_id=1795168083 instance=ExtResource("36_0augb")]
 layout_mode = 2
 
-[node name="TopCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1309932518 instance=ExtResource("30_w7uul")]
+[node name="TopCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1309932518 node_paths=PackedStringArray("Connectors") instance=ExtResource("30_w7uul")]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 15.0
 offset_right = 281.0
 offset_bottom = 31.0
+Connectors = [NodePath("Connector"), NodePath("Block/Body/ContentMargin/Content/InputContent/ValueInput/MarginContainer/Content/Connector")]
 
 [node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3/Block/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1309932518, 641951453) index="0" unique_id=1814599483 instance=ExtResource("35_w7uul")]
 layout_mode = 2
@@ -185,11 +193,6 @@ offset_bottom = 73.0
 
 [node name="ValueCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1289257834 instance=ExtResource("6_fjb1c")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 10.0
-offset_bottom = 10.0
-ConnectionType = 0
 
 [node name="ConditionalCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1373917120 instance=ExtResource("7_kkquf")]
 layout_mode = 0
@@ -198,18 +201,12 @@ offset_top = 144.0
 offset_right = 134.0
 offset_bottom = 177.0
 
-[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1373917120, 974330061) index="0" unique_id=2062565822 instance=ExtResource("35_w7uul")]
-layout_mode = 2
-
 [node name="ConditionalCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=842369063 instance=ExtResource("7_kkquf")]
 layout_mode = 0
 offset_left = 126.0
 offset_top = 93.0
 offset_right = 198.0
 offset_bottom = 126.0
-
-[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(842369063, 974330061) index="0" unique_id=1160930628 instance=ExtResource("35_w7uul")]
-layout_mode = 2
 
 [node name="ConditionalCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=462515333 instance=ExtResource("7_kkquf")]
 layout_mode = 0
@@ -218,9 +215,6 @@ offset_top = 97.0
 offset_right = 89.0
 offset_bottom = 130.0
 
-[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(462515333, 974330061) index="0" unique_id=1138773490 instance=ExtResource("35_w7uul")]
-layout_mode = 2
-
 [node name="ConditionalCodeBlock4" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1140293414 instance=ExtResource("7_kkquf")]
 layout_mode = 0
 offset_left = 130.0
@@ -228,12 +222,33 @@ offset_top = 39.0
 offset_right = 202.0
 offset_bottom = 72.0
 
-[node name="Text" parent="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent" parent_id_path=PackedInt32Array(1140293414, 974330061) index="0" unique_id=1880376347 instance=ExtResource("35_w7uul")]
-layout_mode = 2
+[node name="IfElseConditionalCodeBlock" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1988184806 instance=ExtResource("13_6i630")]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 125.0
+offset_right = 106.0
+offset_bottom = 169.0
+
+[node name="ValueCodeBlock2" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=1488888495 instance=ExtResource("15_316o2")]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 36.0
+offset_right = 68.0
+offset_bottom = 46.0
+
+[node name="ValueCodeBlock3" parent="SubViewportContainer/SubViewport/BlockCode" unique_id=142083531 instance=ExtResource("16_215xb")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 49.0
+offset_right = 47.0
+offset_bottom = 59.0
 
 [editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock/Block/Body/ContentMargin/Content/InputContent/ValueInput"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock2/Block/Body/ContentMargin/Content/InputContent/ValueInput"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/TopCodeBlock3/Block/Body/ContentMargin/Content/InputContent/ValueInput"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock2"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock5"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock6"]
@@ -241,6 +256,23 @@ layout_mode = 2
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock8"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/MiddleCodeBlock9"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock2/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock3/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
 [editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/ConditionalCodeBlock4/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/IfElseConditionalCodeBlock"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/IfElseConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/IfElseConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/ValueInput"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/IfElseConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer/Body/ContentMargin/Content/InputContent/Text2"]
+[editable path="SubViewportContainer/SubViewport/BlockCode/IfElseConditionalCodeBlock/Block/HBoxContainer2/HBoxContainer6/Body/ContentMargin/Content/MarginContainer/InputContent/Text"]

@@ -2,14 +2,18 @@
 
 [ext_resource type="StyleBox" uid="uid://461ta5cxg2lg" path="res://assets/block_code/center.tres" id="1_nl42v"]
 [ext_resource type="StyleBox" uid="uid://b1ttbfl6qws8g" path="res://assets/block_code/inset_part_top.tres" id="1_thfll"]
+[ext_resource type="Script" uid="uid://8rihxyc8ufts" path="res://editor/block_code/block_components/ValueBlockComponent.cs" id="1_vibxj"]
 [ext_resource type="StyleBox" uid="uid://dan2cqu48lurl" path="res://assets/block_code/inset_part_center.tres" id="2_25ba3"]
 [ext_resource type="StyleBox" uid="uid://pfq1r3yv5eke" path="res://assets/block_code/inset_part_bottom.tres" id="3_10kex"]
+[ext_resource type="PackedScene" uid="uid://pdlehc2u1qv2" path="res://prefabs/blend_code/connector.tscn" id="5_4mxl7"]
 
-[node name="ValueInput" type="HBoxContainer" unique_id=1867175421]
+[node name="ValueInput" type="HBoxContainer" unique_id=1867175421 node_paths=PackedStringArray("Connector")]
 custom_minimum_size = Vector2(18, 0)
 offset_right = 14.0
 offset_bottom = 9.0
 theme_override_constants/separation = 0
+script = ExtResource("1_vibxj")
+Connector = NodePath("MarginContainer/Content/Connector")
 
 [node name="PanelContainer4" type="PanelContainer" parent="." unique_id=644211134]
 custom_minimum_size = Vector2(2, 0)
@@ -56,6 +60,10 @@ theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 2
+
+[node name="Connector" parent="MarginContainer/Content" unique_id=1826513651 instance=ExtResource("5_4mxl7")]
+layout_mode = 2
+ConnectionType = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="." unique_id=921847256]
 custom_minimum_size = Vector2(2, 0)

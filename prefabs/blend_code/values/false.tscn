@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://do2kbfyjfnhs0"]
+
+[ext_resource type="PackedScene" uid="uid://c4xwi2kbcnant" path="res://prefabs/blend_code/values/value_code_block.tscn" id="1_ad4ql"]
+[ext_resource type="Script" uid="uid://dntjpecf00wkm" path="res://editor/block_code/values_blocks/BoolValueBlock.cs" id="2_tt0dj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4344"]
+font_size = 5
+
+[node name="ValueCodeBlock" unique_id=1289257834 instance=ExtResource("1_ad4ql")]
+size_flags_vertical = 3
+script = ExtResource("2_tt0dj")
+Value = false
+ConnectionType = 2
+
+[node name="BG" parent="." index="0" unique_id=1908239692]
+modulate = Color(1, 0, 0.2109375, 1)
+
+[node name="Label" type="Label" parent="Content" parent_id_path=PackedInt32Array(1679853314) index="0" unique_id=292692168]
+layout_mode = 2
+text = "False"
+label_settings = SubResource("LabelSettings_s4344")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b12vm5s2iu0fa"]
+
+[ext_resource type="StyleBox" uid="uid://cpyc3x3p47frx" path="res://assets/block_code/preview_value_top.tres" id="1_3g4ld"]
+[ext_resource type="StyleBox" uid="uid://crpjsjhl0los" path="res://assets/block_code/preview_value_center.tres" id="2_kwtw3"]
+[ext_resource type="StyleBox" uid="uid://sy70u6wcodqy" path="res://assets/block_code/preview_value_bottom.tres" id="3_5rumc"]
+
+[node name="Panel" type="VBoxContainer" unique_id=1169265717]
+custom_minimum_size = Vector2(10, 10)
+offset_bottom = 3.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=443148415]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_3g4ld")
+
+[node name="Panel3" type="Panel" parent="." unique_id=792475225]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_kwtw3")
+
+[node name="Panel2" type="Panel" parent="." unique_id=60915703]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_5rumc")

@@ -9,31 +9,22 @@ namespace BlockCode
 	[Icon("res://assets/icons/block_code/block_code.tres")]
 	public partial class BlockCode : Control
 	{
-		//private readonly Dictionary<BlockConnector, BlockConnector.MouseHoveredEventHandler> _hoverHandlers = [];
-		//private readonly Dictionary<BlockConnector, BlockConnector.MouseUnhoveredEventHandler> _unhoverHandlers = [];
-		//private readonly Dictionary<BaseBlock, BaseBlock.StartMovingEventHandler> _movingStartedHandlers = [];
-		//private readonly Dictionary<BaseBlock, BaseBlock.StoppedMovingEventHandler> _movingStoppedHandlers = [];
-
 		private BaseBlock _movingBlock;
 		private BlockConnector _hoveredConnector;
 
 		private Control _blockPreviewControl;
+		private Control _blockValuePreviewControl;
 
 		[Export]
 		public PackedScene BlockPreviewTemplate;
+		[Export]
+		public PackedScene BlockValuePreviewTemplate;
 
 
 		public override void _Ready()
 		{
 			_blockPreviewControl = BlockPreviewTemplate.Instantiate<Control>();
-
-			/*
-			foreach(Node node in GetChildren())
-				ConnectBlock(node);
-
-			ChildEnteredTree += ConnectBlock;
-			ChildExitingTree += DisconnectBlock;
-			*/
+			_blockValuePreviewControl = BlockValuePreviewTemplate.Instantiate<Control>();
 		}
 
 		public void BlockStartedMoving(BaseBlock block) {
@@ -50,6 +41,7 @@ namespace BlockCode
 				{
 					_hoveredConnector?.Connect(block);
 					_blockPreviewControl.GetParent()?.RemoveChild(_blockPreviewControl);
+					_blockValuePreviewControl.GetParent()?.RemoveChild(_blockValuePreviewControl);
 				}
 			}
 		}
@@ -60,24 +52,39 @@ namespace BlockCode
 			if (CanConnect(connector, _movingBlock))
 			{
 				_hoveredConnector = connector;
-				_blockPreviewControl.CustomMinimumSize = _movingBlock.Size;
-				_blockPreviewControl.GetParent()?.RemoveChild(_blockPreviewControl);
-				_hoveredConnector.AddChild(_blockPreviewControl);
+				if (connector.ConnectionType == BlockConnector.BlockConnectionType.Default)
+				{
+					_blockPreviewControl.CustomMinimumSize = _movingBlock.Size;
+					_blockPreviewControl.GetParent()?.RemoveChild(_blockPreviewControl);
+					_hoveredConnector.AddChild(_blockPreviewControl);
+				}
+				else
+				{
+					_blockValuePreviewControl.CustomMinimumSize = _movingBlock.Size;
+					_blockValuePreviewControl.GetParent()?.RemoveChild(_blockValuePreviewControl);
+					_hoveredConnector.AddChild(_blockValuePreviewControl);
+				}
 			}
 		}
 		public void ConnectorUnhovered(BlockConnector connector)
 		{
 			if (_hoveredConnector == connector)
 			{
-				if (_blockPreviewControl.GetParent() == _hoveredConnector)
-					_hoveredConnector.RemoveChild(_blockPreviewControl);
+				if (connector.ConnectionType == BlockConnector.BlockConnectionType.Default)
+				{
+					if (_blockPreviewControl.GetParent() == _hoveredConnector)
+						_hoveredConnector.RemoveChild(_blockPreviewControl);
+				}
+				else
+					if (_blockValuePreviewControl.GetParent() == _hoveredConnector)
+						_hoveredConnector.RemoveChild(_blockValuePreviewControl);
 				_hoveredConnector = null;
 			}
 		}
 		
 		public static bool CanConnect(BlockConnector connector, BaseBlock block)
 		{
-			if (connector == null || block == null || connector.IsConnected() || block.Connectors.Contains(connector))
+			if (connector == null || block == null || block.ConnectionType != connector.ConnectionType || connector.IsConnected() || block.Connectors.Contains(connector))
 				return false;
 			
 			Node previousNode = connector.GetParent();
